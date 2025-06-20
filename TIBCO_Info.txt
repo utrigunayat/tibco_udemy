@@ -1,0 +1,12 @@
+TIBCO ADMIN URL : http://localhost:8080/
+user: utkarsh
+Password: Ricky1234
+
+DB : jdbc:postgresql://localhost:5432/testdatabase
+user: postgres
+Password: Ricky@1234
+
+
+tcp://localhost:7222> show users
+ User Name         Description
+ test              test@1234

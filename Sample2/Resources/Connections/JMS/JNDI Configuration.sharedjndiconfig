@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BWSharedResource>
+    <name>JNDI Configuration</name>
+    <resourceType>ae.shared.JNDISharedConfiguration</resourceType>
+    <config>
+        <ValidateJndiSecurityContext>false</ValidateJndiSecurityContext>
+        <ContextFactory>com.tibco.tibjms.naming.TibjmsInitialContextFactory</ContextFactory>
+        <ProviderUrl>tcp://localhost:7222</ProviderUrl>
+        <SecurityPrincipal>test</SecurityPrincipal>
+        <SecurityCredentials>#!b+cgrHQr+0nnxCF6jHFxcVpjkROwLJc2Aw6iC5NueVk=</SecurityCredentials>
+    </config>
+</BWSharedResource>
