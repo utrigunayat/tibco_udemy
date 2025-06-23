@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	 xmlns="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/Schema.xsd"
-	 targetNamespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/Schema.xsd"
+	 xmlns:createEmployeeRequest="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/createEmployeeRequest.xsd"
+	 xmlns:Employee="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd"
+	 xmlns:ns0="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/createEmployeeRequest.xsd"
 	 elementFormDefault="qualified"
 	 attributeFormDefault="unqualified">
-	<xs:element name="root">
-		<xs:complexType/>
+	<xs:import namespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd" schemaLocation="../Model/Employee.xsd"/>
+	<xs:element name="createEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ns0:Employees"/>
+			</xs:sequence>
+		</xs:complexType>
 	</xs:element>
 </xs:schema>
