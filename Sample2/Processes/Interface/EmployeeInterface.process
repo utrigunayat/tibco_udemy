@@ -51,7 +51,7 @@
     <pd:activity name="REST Dispatch and Reply">
         <pd:type>com.tibco.plugin.json.rest.server.activities.RestAdapterActivity</pd:type>
         <pd:resourceType>rest.activities.RestAdapter</pd:resourceType>
-        <pd:x>400</pd:x>
+        <pd:x>401</pd:x>
         <pd:y>70</pd:y>
         <config>
             <eventSource>HTTP Receiver</eventSource>
@@ -93,49 +93,15 @@
                                                 </RESTResponse>
                                             </xsl:template>
                                         </Output-Binding>
-                                    </Binding>
-                                </ns0:method>
-                                <ns0:method id="GetEmployeeById" name="GET">
-                                    <ns0:doc/>
-                                    <Binding process="/Processes/Services/getEmployeeByID.process">
-                                        <RESTResponseHeader>
-                                            <xsd:element name="Headers">
-                                                <xsd:complexType>
-                                                    <xsd:sequence>
-                                                        <xsd:element name="StatusLine" type="xsd:string" minOccurs="0"/>
-                                                        <xsd:element name="Content-Type" type="xsd:string" minOccurs="0"/>
-                                                        <xsd:element name="Location" type="xsd:string" minOccurs="0"/>
-                                                        <xsd:element name="Set-Cookie" type="xsd:string" minOccurs="0"/>
-                                                        <xsd:element name="Pragma" type="xsd:string" minOccurs="0"/>
-                                                    </xsd:sequence>
-                                                </xsd:complexType>
-                                            </xsd:element>
-                                        </RESTResponseHeader>
                                         <Input-Binding xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
                                             <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsd="http://www.w3.org/2001/XMLSchema" match="/*">
-                                                <getEmployeebyIdRequest>
-                                                    <JSONmsg>
+                                                <getEmployeesRequest>
+                                                    <EmpId>
                                                         <xsl:value-of select="$HTTP-Receiver/ProcessStarterOutput/parameters/EmpId"/>
-                                                    </JSONmsg>
-                                                </getEmployeebyIdRequest>
+                                                    </EmpId>
+                                                </getEmployeesRequest>
                                             </xsl:template>
                                         </Input-Binding>
-                                        <Output-Binding xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeeByIdRequest.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/json" xmlns:pfx3="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeeByIdResponse.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd">
-                                            <xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeeByIdRequest.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/json" xmlns:pfx3="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeeByIdResponse.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd" match="/*">
-                                                <RESTResponse>
-                                                    <xsl:if test="$End/response/JSONmessage">
-                                                        <asciiContent>
-                                                            <xsl:value-of select="$End/response/JSONmessage"/>
-                                                        </asciiContent>
-                                                    </xsl:if>
-                                                    <Headers>
-                                                        <Content-Type>
-                                                            <xsl:value-of select="'application/json'"/>
-                                                        </Content-Type>
-                                                    </Headers>
-                                                </RESTResponse>
-                                            </xsl:template>
-                                        </Output-Binding>
                                     </Binding>
                                 </ns0:method>
                             </ns0:resource>

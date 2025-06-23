@@ -87,7 +87,7 @@
         <pd:inputBindings>
             <jdbcQueryActivityInput>
                 <EmployeeId>
-                    <xsl:value-of select="$Start/pfx:getEmployeeByIdRequest/pfx:employeeId"/>
+                    <xsl:value-of select="number($Start/pfx:getEmployeeByIdRequest/pfx:employeeId)"/>
                 </EmployeeId>
             </jdbcQueryActivityInput>
         </pd:inputBindings>

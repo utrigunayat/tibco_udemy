@@ -8,7 +8,7 @@
 	<xs:element name="getEmployeeByIdRequest">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="employeeId" type="xs:string"/>
+				<xs:element name="employeeId" type="xs:string" minOccurs="0"/>
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

@@ -2,12 +2,13 @@
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	 xmlns:Employee="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd"
-	 xmlns:getAllEmployeesResponse="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd"
-	 targetNamespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd"
+	 xmlns:getEmployeesResponse="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeesResponse.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeesResponse.xsd"
 	 elementFormDefault="qualified"
 	 attributeFormDefault="unqualified">
 	<xs:import namespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd" schemaLocation="../Model/Employee.xsd"/>
-	<xs:element name="getAllEmployeesResponse">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+	<xs:element name="getEmployeesResponse">
 		<xs:complexType>
 			<xs:sequence>
 				<xs:element ref="Employee:Employees"/>

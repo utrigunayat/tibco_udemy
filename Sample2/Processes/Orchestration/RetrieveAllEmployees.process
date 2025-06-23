@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeeIdResponse.xsd" xmlns:pfx3="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd">
+<pd:ProcessDefinition xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:pfx="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:pfx2="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeeIdResponse.xsd" xmlns:pfx3="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd" xmlns:pfx4="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeesResponse.xsd">
     <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Model/Employee.xsd" schemaLocation="/Resources/Schema/Model/Employee.xsd"/>
-    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getAllEmployeesResponse.xsd" schemaLocation="/Resources/Schema/Processes/getAllEmployeesResponse.xsd"/>
+    <xs:import xmlns:xs="http://www.w3.org/2001/XMLSchema" namespace="http://www.tibco.com/schemas/Sample2/Resources/Schema/Processes/getEmployeesResponse.xsd" schemaLocation="/Resources/Schema/Processes/getEmployeesResponse.xsd"/>
     <pd:name>Processes/Orchestration/RetrieveAllEmployees.process</pd:name>
     <pd:startName>Start</pd:startName>
     <pd:startX>150</pd:startX>
     <pd:startY>63</pd:startY>
     <pd:returnBindings>
-        <pfx3:getAllEmployeesResponse>
-            <pfx:Employees>
-                <xsl:for-each select="$JDBC-Query/resultSet/Record">
-                    <pfx:Employee>
-                        <pfx:id>
-                            <xsl:value-of select="id"/>
-                        </pfx:id>
-                        <pfx:name>
-                            <xsl:value-of select="name"/>
-                        </pfx:name>
-                        <pfx:age>
-                            <xsl:value-of select="age"/>
-                        </pfx:age>
-                        <xsl:if test="city">
-                            <pfx:city>
-                                <xsl:value-of select="city"/>
-                            </pfx:city>
-                        </xsl:if>
-                        <xsl:if test="salary">
-                            <pfx:salary>
-                                <xsl:value-of select="salary"/>
-                            </pfx:salary>
-                        </xsl:if>
-                    </pfx:Employee>
-                </xsl:for-each>
-            </pfx:Employees>
-        </pfx3:getAllEmployeesResponse>
+        <pfx4:getEmployeesResponse>
+            <xsl:for-each select="$JDBC-Query/resultSet">
+                <pfx:Employees>
+                    <xsl:for-each select="Record">
+                        <pfx:Employee>
+                            <pfx:id>
+                                <xsl:value-of select="id"/>
+                            </pfx:id>
+                            <pfx:name>
+                                <xsl:value-of select="name"/>
+                            </pfx:name>
+                            <pfx:age>
+                                <xsl:value-of select="age"/>
+                            </pfx:age>
+                            <xsl:if test="city">
+                                <pfx:city>
+                                    <xsl:value-of select="city"/>
+                                </pfx:city>
+                            </xsl:if>
+                            <xsl:if test="salary">
+                                <pfx:salary>
+                                    <xsl:value-of select="salary"/>
+                                </pfx:salary>
+                            </xsl:if>
+                        </pfx:Employee>
+                    </xsl:for-each>
+                </pfx:Employees>
+            </xsl:for-each>
+        </pfx4:getEmployeesResponse>
     </pd:returnBindings>
     <pd:endName>End</pd:endName>
-    <pd:endType ref="pfx3:getAllEmployeesResponse"/>
+    <pd:endType ref="pfx4:getEmployeesResponse"/>
     <pd:endX>729</pd:endX>
     <pd:endY>61</pd:endY>
     <pd:errorSchemas/>
